@@ -12,7 +12,7 @@
 | ---------- | --------- | -------- | ------------------------ | ------------------------ | ---------------------------------- |
 | 脱敏用户ID | 精确到秒  | 基站编号 | Wgs84坐标系，保留6位小数 | Wgs84坐标系，保留6位小数 | 11、12等等，分别代表不同的事件类型 |
 
-![img](file:///C:/Users/FEIYUX~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.gif)
+![img](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/1.png)
 
 图1.  信令事件类型
 
@@ -34,7 +34,7 @@
 
 事件类型，包含多种，这里以CS域信令事件为例进行说明，如图所示11代表主叫，12代表被叫，31代表开关机，32为位置更新，33代表切换，51为发短信，52为收短信。随着QQ、微信等社交软件的出现，通话和短信占比已经很低，而位置更新事件所占的比例非常高。位置更新包括周期性的位置更新以及由于位置移动导致的位置更新，两者均属于被动行为，用户无感，为保证数据的客观与可靠性奠定了良好的基础。
 
-![img](file:///C:/Users/FEIYUX~1/AppData/Local/Temp/msohtmlclip1/01/clip_image004.gif)
+![img](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/2.png)
 
 图2.  信令事件结构组成
 
@@ -42,7 +42,7 @@
 
 由于网络割接等原因，会存在数据异常的情况。为此分析区域内每天的信令量变化，查看是否存在异常日期。数据分析表明，并未存在异常。
 
-![img](file:///C:/Users/FEIYUX~1/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg)
+![img](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/3.png)
 
 图3.  信令数量检查
 
@@ -85,7 +85,7 @@
 
 ##### 2.        网格空间位置数据
 
-![https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539319396203&di=bc2af38272b95eb23f2a1ba8f542b698&imgtype=0&src=http%3A%2F%2Fimg0.pconline.com.cn%2Fpconline%2F1708%2F21%2F9820005_201782158812647_thumb.jpg](file:///C:/Users/FEIYUX~1/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg)
+![img](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/4.png)
 
 示例如上，通过网格ID跟数据可以关联。
 
