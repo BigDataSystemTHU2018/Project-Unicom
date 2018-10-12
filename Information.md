@@ -19,6 +19,7 @@
     + [城市计算_微软](https://www.microsoft.com/en-us/research/project/urban-computing/)
     + 代表文献：
       + [Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction (Code,Slides,Pdf)](https://www.microsoft.com/en-us/research/publication/deep-spatio-temporal-residual-networks-for-citywide-crowd-flows-prediction/)
+      + [DNN-Based Prediction Model for Spatio-Temporal Data](https://www.microsoft.com/en-us/research/publication/dnn-based-prediction-model-spatial-temporal-data/) 
     + [一个城市计算的相关资料的汇总](https://www.zhihu.com/question/25359731)
 
 ## Schedule
