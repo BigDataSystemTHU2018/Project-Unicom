@@ -34,7 +34,7 @@
 
   + 肖飞宇：熟练掌握**Latex** 可总体负责文档编写，会一定的C++，Python以及机器学习和人工智能的算法可以帮助一些代码构建和分析（负责总体协调）
   + 牛苒: 用Excel处理数据/Tableau数据可视化/PPT和presentation/金融Excel建模和分析
-  + 沈磊
+  + 沈磊：比较熟练matlab，会一点linux，c++，python。
   + 荆科:python,scrapy,回归分析，文本分析，各种设计
   + 赵嘉欣：会c++，python以及机器学习等算法
   + 李司棋
