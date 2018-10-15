@@ -38,7 +38,7 @@
   + 荆科: python,scrapy,回归分析，文本分析，各种设计
   + 赵嘉欣：会c++，python以及机器学习等算法
   + 李司棋：python在学，会matlab，c++，群智能相关算法，会一点STATA分析金融数据。也善于撰写报告和pre。
-  + 张玉生
+  + 张玉生：matlab，python，c++属于一般水平。机器学习及人工智能初学阶段。
   + 韦承志：会一定的python，Matlab，SQL（MySql），经典人工神经网络。爬虫在学。
 
 # Meeting 10.14.
