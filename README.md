@@ -22,3 +22,6 @@ Project for Big data system foundation 2018
   + 语法：
     + [Markdown简明语法](https://www.jianshu.com/p/191d1e21f7ed)
     + 详细的语法在**Typora** 软件中的 **Help->Markdown Reference** 有详细解答
++ Github 的使用
+  + Issue功能：类似于一个讨论版
+    + ![](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/Issue.png)
