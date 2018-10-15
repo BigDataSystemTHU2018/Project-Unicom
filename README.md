@@ -5,7 +5,7 @@ Project for Big data system foundation 2018
 
 + Information.md: 关于项目的详细的资料和描述，需要大家经常关注更新
 
-  + 每个成员首先在**\Personal** 文件夹下的自己的md文档中记录自己的文献调研和问题进展(例如： feiyuxiao.md)，每次由组长汇总到根目录下的 Information.md 文档下供大家一起阅读
+  + 每个成员首先在 **\Personal** 文件夹下的自己的md文档中记录自己的文献调研和问题进展(例如： feiyuxiao.md)，每次由组长汇总到根目录下的 Information.md 文档下供大家一起阅读
 + IntroBrief.md 主要记录公司方的项目需求
 + **\Refs** 目录下存放重要的文档和文献 **需要所有组员认真阅读** 
 
