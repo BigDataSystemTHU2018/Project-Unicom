@@ -22,6 +22,27 @@
       + [DNN-Based Prediction Model for Spatio-Temporal Data](https://www.microsoft.com/en-us/research/publication/dnn-based-prediction-model-spatial-temporal-data/) 
     + [一个城市计算的相关资料的汇总](https://www.zhihu.com/question/25359731)
 
+  + 可能分析角度（update on 10.23.）
+
+    [城市异常预测](https://www.microsoft.com/en-us/research/project/%E5%9F%8E%E5%B8%82%E8%AE%A1%E7%AE%97/)  :**基于大数据的人流预测**
+
+    + **城市区域人流预测** 
+
+        ![](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/pre.png)
+
+      + 将城市通过主干道分成具有语义信息的区域，通过融合交通、气象和事件等各种大数据，预测各个区域内未来几小时人流进入和流出的数量，以便提前启动预警机制，及早疏导人群和车流，保障区域内短时人口密度在安全范围内，从而防范重大交通事故和灾难性城市安全事件（如踩踏）的发生。
+      + 论文：[FCCF: Forecasting Citywide Crowd Flows
+        Based on Big Data](https://www.microsoft.com/en-us/research/publication/forecasting-citywide-crowd-flows-based-big-data/)
+
+    + **基于深度学习的城市网格人流预测**
+
+      ![](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/dnn.png)
+
+      + 将城市分割成均匀网格，基于交通、气象、时间和事件等多源信息，采用深度学习（Deep Learning）的方法，来综合预测未来每个网格的进入和流出人流数，以便提前启动预警机制，及早疏导人群和车流，保障区域内短时人口密度在安全范围内，从而防范重大交通事故和灾难性城市安全事件（如踩踏）的发生。在采用深度学习算法时，我们充分考虑的时空数据的属性，设计的更为合理的网络结构来模拟人流数据的周期性、趋势性和时空的邻近性等特征，取得了比简单CNN更好的效果。
+      + 论文
+        + [Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction](https://www.microsoft.com/en-us/research/publication/deep-spatio-temporal-residual-networks-for-citywide-crowd-flows-prediction/)
+        + [DNN-Based Prediction Model for Spatio-Temporal Data](https://www.microsoft.com/en-us/research/publication/dnn-based-prediction-model-spatial-temporal-data/)
+
 ## Schedule
 
 + 分工
