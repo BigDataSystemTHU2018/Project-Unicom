@@ -1,6 +1,6 @@
 # Timeline
 
-![TaskMap(By @[ranranzi](https://github.com/orgs/BigDataSystemTHU2018/people/ranranzi))](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/pre.png)
+![TaskMap(By @[ranranzi](https://github.com/orgs/BigDataSystemTHU2018/people/ranranzi))](https://github.com/BigDataSystemTHU2018/Project-Unicom/blob/master/Media/Pics/taskmap.png)
 
 ## Task
 
