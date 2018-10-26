@@ -15,7 +15,6 @@ Project for Big data system foundation 2018
 
   + [Git官网](https://git-scm.com/)
   + [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) （注意：主要学习 pull, commit的使用即可，代码开发可能需要 branch和merge的知识）
-
 + 文档写作 **Markdown**
 
   + 软件推荐： [Typora:windows,Mac都可以使用的免费Markdown语法编辑器](https://www.typora.io/)
@@ -23,3 +22,14 @@ Project for Big data system foundation 2018
     + [Markdown简明语法](https://www.jianshu.com/p/191d1e21f7ed)
     + 详细的语法在**Typora** 软件中的 **Help->Markdown Reference** 有详细解答
 + Github 的使用
+
+# Coding Tools
+
+DeepST uses the following dependencies:
+
+- [Keras](https://keras.io/#installation) and its dependencies are required to use DeepST. Please read [Keras Configuration](https://github.com/BigDataSystemTHU2018/DeepST/blob/master/keras_configuration.md) for the configuration setting.
+- [Theano](http://deeplearning.net/software/theano/install.html#install) or [TensorFlow](https://github.com/tensorflow/tensorflow#download-and-setup), but **Theano** is recommended.
+- numpy and scipy
+- HDF5 and [h5py](http://www.h5py.org/)
+- [pandas](http://pandas.pydata.org/)
+- CUDA 7.5 or latest version. And **cuDNN** is highly recommended.
