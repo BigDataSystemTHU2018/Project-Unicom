@@ -42,13 +42,16 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage[UTF8]{ctex} % support for chinese
 \usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{amsmath}
+\usepackage{cite}
+%\usepackage[backend=bibtex,style=authoryear,sorting=ynt]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
-\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
-
-\addbibresource{ref.bib} % The filename of the bibliography
+%\addbibresource{ref.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
-
+\usepackage{indentfirst} 
+\setlength{\parindent}{2em}
+% \noindent
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
 %----------------------------------------------------------------------------------------
@@ -209,8 +212,9 @@ headsepline, % Uncomment to get a line under the header
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 
-\printbibliography[heading=bibintoc]
-
+%\printbibliography
+\bibliographystyle{unsrt}
+\bibliography{ref}
 %----------------------------------------------------------------------------------------
 
 \end{document}  

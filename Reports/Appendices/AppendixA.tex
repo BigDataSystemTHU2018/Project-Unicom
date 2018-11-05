@@ -1,7 +1,44 @@
 % Appendix A
 
 \chapter{技术说明文档} % Main appendix title
-
 \label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
-
-\section{ReadMe}
+\section{数据细节说明}
+数据总量：大约60万条数据，大小200M
+\begin{enumerate}
+	\item 将三个月的数据合并，并且加上新属性（星期），后续会加上天气
+	数据列名：
+	DATE(date:2017-09-01)	TIME(INT)		WEEK(INT)	ID(INT)	NUMS(INT)	GONUMS(INT)	REANUMS(INT)
+	\item 找到不同ID基站之间的地理位置关系。即将ID与地图对应
+	\item 对异常数据的讨论 \\
+	找出了数据有缺失的ID，分别为：\\
+	\begin{table}
+	\label{tb:id}
+	\centering
+	\caption{数据有缺失的ID}
+	\begin{tabular}{c|c}
+	\hline
+	\hline
+	ID & 1913(1162) \\
+	ID & 1860(1209) \\
+	ID & 1914(1417) \\
+	ID & 1754(1443) \\
+	ID & 1915(1593) \\
+	ID & 1806(1790) \\
+	ID & 1866(2060) \\
+	ID & 1966(2149) \\
+	ID & 2017(2178) \\
+	ID & 1863(2183) \\
+	\hline
+	\hline
+	\end{tabular}
+	\end{table}
+	括号内为基站出现的次数，满次为2184
+	\item 处理基本思路：
+	\begin{itemize}
+		\item 舍弃
+		\item 补全
+	\end{itemize}
+		a.舍弃
+		b.补全
+	\item 准备完成将数据转换为tensorflow数据集文件tfrecords工作，包括预处理
+\end{enumerate}
