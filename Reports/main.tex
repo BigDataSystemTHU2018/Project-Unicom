@@ -73,7 +73,7 @@ headsepline, % Uncomment to get a line under the header
 \thesistitle{基于信令数据的人口时空分布预测模型构建} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 %\supervisor{} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \degree{中期报告} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
-\author{肖飞宇\quad牛苒\quad荆科\quad沈磊\quad韦承志\quad赵嘉欣\quad张玉生\quad李思琪
+\author{肖飞宇\quad牛苒\quad韦承志\quad沈磊\quad赵嘉欣\quad张玉生\quad李司琪\quad荆科
  } % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 
 
@@ -156,8 +156,9 @@ headsepline, % Uncomment to get a line under the header
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 对于城市特别是大型城市而言，预测人口的流动和分布变化对于城市交通治理、公共安全和危险评估都有着重要的战略意义。 而由于其受到诸如区域间交通、突发事件、天气等复杂因素的多元影响，利用传统方法对于其进行预测十分困难。\\
-我们将城市分割成均匀网格，基于交通、气象、时间和事件等多源信息，设计了（什么样的神经网络）来综合预测未来每个网格的进入和流出人流数（方法描述）\\
-（效果和好处）
+\\
+我们将城市分割成均匀网格，基于交通、气象、时间和事件等多源信息，
+设计了期望输出为驻留人数、出发人数、到达人数有监督人工神经网络，综合预测未来每个网格的进入和流出人流数。 网络的输入为数据的特征，通过对于数据的预处理和分析我们认为主要和人数与星期、具体小时、位置、天气、前一小时的人数等主要因素有关。同时我们以获得数据中的驻留人数、出发人数、到达人数作为标签，利用期望输出与网络输出之间的误差建立学习信号反向传播，修正网络权重，最终得到了相对较理想的预测结果。
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
