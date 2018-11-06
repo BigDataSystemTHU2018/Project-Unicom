@@ -42,3 +42,37 @@
 		b.补全
 	\item 准备完成将数据转换为tensorflow数据集文件tfrecords工作，包括预处理
 \end{enumerate}
+\section{项目进度控制}
+项目的进度分为以下几个阶段：
+\begin{enumerate}
+  \item 第一阶段：11.07之前\\
+  完成以下工作：
+  \begin{itemize}
+    \item 问题背景调研：包括问题的背景、对应的客户的需求、和应用的市场前景，形成对需求分析、产品调研、应用案例的阶段性报告
+    \item 对于问题结果可视化的研究：预期结果的产出形式
+    \item 对于数据的清洗和初步分析
+    \begin{itemize}
+      \item 数据清洗： 将数据格式化为和具体网格相关联的数据并进行重新划分和编号以进行进一步的计算
+      \item 初步分析：对于数据进行诸如聚类，对于时空分布规律进行简单探究和分析，基于对于其周期性规律的认识乃至天气等因素的影响的认识建立模型的建构
+    \end{itemize}
+    \item 技术实现的方案选择和可行性调研
+    \begin{itemize}
+      \item 利用现有文献中的数据集和代码，实际测试其方法可行性，总结技术要点和技术难点
+      \item 对于文献中提及的其他方法，如ARIMA、SARIMA、VAR、DeepST方法进行调研，针对其在这一问题上的应用可行性和所存在的问题进行总结分析
+      \item 基于以上两点，进行技术路线的设计以及对于可行性和预期结果的分析。
+    \end{itemize}
+  \end{itemize}
+  \item 第二阶段：11.07-11.28\\
+  完成整个系统的搭建和模型验证，得出预测的结果和预测的精度
+  \item 第三阶段：11.29-12.05\\
+  进行系统的优化和特征深入分析，如对于算法中对于各种影响因素和处理手段的体现和对于结果的影响\\
+  \item 第四阶段：12.06-12.15\\
+  对工作进行总结和分析
+\end{enumerate}
+工作的基本逻辑架构如图(\ref{fig:A1})所示：
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{timeline.png}
+\caption{网络搭建基本构型}
+\label{fig:A1}
+\end{figure}
