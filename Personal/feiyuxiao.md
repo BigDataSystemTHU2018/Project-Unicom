@@ -1,3 +1,0 @@
-# My Readings
-
-**By feiyuxiao** 
