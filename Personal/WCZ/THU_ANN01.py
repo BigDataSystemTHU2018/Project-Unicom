@@ -59,6 +59,8 @@ for i in list(range(len(result))):
 
 csvFile.close()
 
+del result
+
 X = []
 Y = []
 
@@ -70,7 +72,7 @@ for j in yy.values():
 
     
     
-del result
+
 del xx
 del yy
 
