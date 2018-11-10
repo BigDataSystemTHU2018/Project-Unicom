@@ -92,7 +92,7 @@ with tf.Session() as sess:
     print('*'*30)
 
     STEPS = 500000
-    for i in range(STEPS):
+    for i in range(STEPS+1):
         start = (i*batch_size) % data_size
         end = min(start + batch_size, data_size)
         sess.run(train_step, feed_dict={x:X[start:end],y_:Y[start:end]})
