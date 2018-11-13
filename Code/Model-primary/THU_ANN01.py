@@ -11,16 +11,16 @@ batch_size = 100 # 一次喂入神经网络多少数据
 x = tf.placeholder(tf.float32, name='week-ID-time')
 y_ = tf.placeholder(tf.float32, name = 'NUMS-GONUMS-REANUMS')
 
-w1 = tf.Variable(tf.random_normal([3,10], stddev=1))
-b1 = tf.Variable(tf.constant(0., shape=[10]))
+w1 = tf.Variable(tf.random_normal([3,10], stddev=1), name = 'w1')
+b1 = tf.Variable(tf.constant(0., shape=[10]), name = 'b1')
 y1 = tf.nn.relu(tf.matmul(x, w1) + b1)
 
-w2 = tf.Variable(tf.random_normal([10,10], stddev=1))
-b2 = tf.Variable(tf.constant(0., shape=[10]))
+w2 = tf.Variable(tf.random_normal([10,10], stddev=1), name = 'w2')
+b2 = tf.Variable(tf.constant(0., shape=[10]), name = 'b2')
 y2 = tf.nn.relu(tf.matmul(y1, w2) + b2)
 
-w3 = tf.Variable(tf.random_normal([10,3], stddev=1))
-b3 = tf.Variable(tf.constant(0., shape=[3]))
+w3 = tf.Variable(tf.random_normal([10,3], stddev=1), name = 'w3')
+b3 = tf.Variable(tf.constant(0., shape=[3]), name = 'b3')
 y3 = tf.matmul(y2, w3) + b3
 
 
@@ -59,6 +59,8 @@ for i in list(range(len(result))):
 
 csvFile.close()
 
+del result
+
 X = []
 Y = []
 
@@ -68,6 +70,13 @@ for i in xx.values():
 for j in yy.values():
     Y.append(j)
 
+    
+    
+
+del xx
+del yy
+
+    
 
 # 在Session中运算
 with tf.Session() as sess:
@@ -85,7 +94,7 @@ with tf.Session() as sess:
     print('*'*30)
 
     STEPS = 500000
-    for i in range(STEPS):
+    for i in range(STEPS+1):
         start = (i*batch_size) % data_size
         end = min(start + batch_size, data_size)
         sess.run(train_step, feed_dict={x:X[start:end],y_:Y[start:end]})
