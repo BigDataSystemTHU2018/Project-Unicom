@@ -39,4 +39,10 @@
     },
 ```
 
-Contributor: @[garfieldlee96](https://github.com/orgs/BigDataSystemTHU2018/people/garfieldlee96) 
+对Json文件进行处理得到了每个格点和经纬度对应的坐标信息
+
+| 格点编号 |     经度      |     纬度     |
+| :------: | :-----------: | :----------: |
+|    12    | 116.235408984 | 39.693693209 |
+
+Contributor: @[garfieldlee96](https://github.com/orgs/BigDataSystemTHU2018/people/garfieldlee96)  @[肖飞宇](https://github.com/orgs/BigDataSystemTHU2018/people/feiyuxiaoThu) 
