@@ -33,12 +33,14 @@ for i in range(2264):
     people[i] = Data0[x][y]
 population = [[lon[i],lat[i],people[i]] for i in range(2264)]
 #tiles = 'stamen Toner'
-map_back = folium.Map(location=[lon.mean(),lat.mean()],tiles = 'stamen Toner',
-                      control_scale=True,zoom_start=13)
-map_back.add_child(HeatMap(population,radius = 5.5, gradient={0.4:'blue',0.65:"lime",
-                                                            0.9:"red",1:'yellow'}))
-file_path = r"test.html"
+#OpenStreetMap
+map_back = folium.Map(location=[lon.mean(),lat.mean()],tiles = 'OpenStreetMap',
+                      control_scale=True,zoom_start=10)
+map_back.add_child(HeatMap(population,radius = 5.5,gradient={0.2:'green',0.4:'blue',0.6:'lime',0.75:'orange',0.9:'red'}))
+#gradient={0.4:'blue',0.65:"lime", 0.9:"red",1:'yellow'}
+file_path = r"folium.html"
 map_back.save(file_path)
 
 webbrowser.open(file_path)
+
 
