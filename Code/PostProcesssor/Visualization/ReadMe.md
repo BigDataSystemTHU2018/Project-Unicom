@@ -36,7 +36,11 @@ imageio.mimsave('surface_plot.gif', images,duration=0.25)
 
 分为静态 *heatmap_folium.py* (folium.html)和动态 *moveheatmap.py*(move.html)
 
+**参考资料**
 
+[Heatmap.ipynb](https://nbviewer.jupyter.org/github/python-visualization/folium/blob/master/examples/Heatmap.ipynb)
+
+[HeatMapWithTime.ipynb](https://nbviewer.jupyter.org/github/python-visualization/folium/blob/master/examples/HeatMapWithTime.ipynb)
 
 
 
