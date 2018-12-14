@@ -4,6 +4,7 @@ from matplotlib import cm
 from matplotlib.ticker import MultipleLocator as mpl
 import matplotlib.cm
 import numpy as np
+import seaborn as sns
 
 #利用热力图展示网格分布
 data = pd.read_csv('loc2grid.csv',header=0,index_col=0)
@@ -16,8 +17,8 @@ xlabel = np.arange(ncol+1)
 ylabel = np.arange(nrow+1)
 
 fig,ax = plt.subplots()
-cmap = cm.get_cmap('rainbow',2)
-im = ax.imshow(data,cmap=cmap)
+#cmap = cm.get_cmap('rainbow',1000)
+im = ax.imshow(data,cmap="Blues")
 
 xmajor = mpl(5)
 ymajor = mpl(5)
@@ -32,5 +33,6 @@ ax.set_xlabel('Station Localization Map')
 ax.grid(which='minor',color='w',linewidth=1)
 
 ax.tick_params(top=True,bottom=False,labeltop=True,labelbottom=False)
-
+plt.savefig("plotgrid.png",dpi=200)
 plt.show()
+
