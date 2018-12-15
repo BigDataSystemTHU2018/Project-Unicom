@@ -4,8 +4,8 @@
 import tensorflow as tf
 import os
 import numpy as np
-from DeepST_by_CZ import ResnetTHU
-from DeepST_by_CZ import getdataTHU
+import ResnetTHU
+import getdataTHU
 
 
 # 设置图片大小
