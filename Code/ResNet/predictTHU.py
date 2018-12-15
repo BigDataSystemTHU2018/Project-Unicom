@@ -6,8 +6,8 @@
 import tensorflow as tf
 import os
 import numpy as np
-from DeepST_by_CZ import getdataTHU
-from DeepST_by_CZ import ResnetTHU
+import getdataTHU
+import ResnetTHU
 
 # 要预测的天数
 predic_days = 7
