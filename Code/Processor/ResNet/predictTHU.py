@@ -84,7 +84,8 @@ def test(data, tra_arr, predict_start, predict_end):
     with tf.Session() as sess:
         init_op = tf.global_variables_initializer()
         sess.run(init_op)
-
+        
+        # 如果已有模型保存下来，则启动已经保存好的模型，checkpoint为配置文件，修改checkpoint内的配置可以自由切换模型
         ckpt = tf.train.get_checkpoint_state(MODEL_SAVE_PATH)
         if ckpt and ckpt.model_checkpoint_path:
             saver.restore(sess, ckpt.model_checkpoint_path)
@@ -123,19 +124,25 @@ def test(data, tra_arr, predict_start, predict_end):
             x1x = np.array(x1x, dtype=np.float32)
             x2x = np.array(x2x, dtype=np.float32)
             x3x = np.array(x3x, dtype=np.float32)
-
+            
+            # 求出预测结果并打印输出
             YY = sess.run(y, feed_dict={x11: x1x, x22: x2x, x33: x3x})
             print(YY)
+            # 将预测结果的二维结构拉直成一维，为了与输出作比较
             YYY = np.ravel(YY)
             print(YYY)
             YYY = YYY.tolist()
+            # 将预测结果保存在output_datas变量，后面将该变量写入文件输出
             output_datas.append(YYY)
 
             STEPS += 1
+            # 观察每一步输出的误差，真实情况下也许没有期望值，就必须把下面两行标注掉
             loss = sess.run(mse, feed_dict={x11: x1x, x22: x2x, x33: x3x, y_: data[start1:end1]})
             print('STEPS:{}, loss={}'.format(STEPS, loss))
+            # 将本次的预测结果又作为下次预测的输入
             data[item] = YYY
-
+        
+        # 把所有预测结果写入文件输出
         with open(save_name, 'w') as f:
             len_out = predict_end - predict_start
             len_in = IMAGE_HIGHT * IMAGE_WIDTH
@@ -144,6 +151,7 @@ def test(data, tra_arr, predict_start, predict_end):
                     f.write(str(output_datas[i][j]))
                     f.write('\t')
                 f.write('\n')
+                
 def predic_region(size_data, predic_days):
     '''
     返回一个预测区间，输入为图片总数，即总小时数，和待预测的天数
