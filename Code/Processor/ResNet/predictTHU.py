@@ -130,6 +130,13 @@ def test(data, tra_arr, predict_start, predict_end):
             print(YY)
             # 将预测结果的二维结构拉直成一维，为了与输出作比较
             YYY = np.ravel(YY)
+            tra_arr2 = np.ones(shape=YYY.size)
+            ii = -1
+            for element in YYY.flat:
+                ii += 1
+                if element < 0:
+                    tra_arr2[ii] = -1
+            YYY = YYY * tra_arr2[ii]
             print(YYY)
             YYY = YYY.tolist()
             # 将预测结果保存在output_datas变量，后面将该变量写入文件输出
