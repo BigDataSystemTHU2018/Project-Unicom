@@ -41,11 +41,13 @@ def get_files_data():
     txt_list = []
     for file in file_list:
         txt = os.path.splitext(file)[-1]
-        if txt in ('.csv', '.txt'):
+        if (txt in ('.csv', '.txt')) and ('fit' not in file):
             txt_list.append(file)
     if txt_list == []:
         raise Exception('in get_files_data')
         return
+    
+    txt_list = sorted(txt_list, key=lambda x: int(x[:-5]))
     print('要依次读取的文件为：')
     for csv in txt_list:
         print(csv, end='\t')
