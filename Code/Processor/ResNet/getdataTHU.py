@@ -1,5 +1,6 @@
 '''
 此模块用来批量读取文件，将待测试的数据以csv或者txt格式放在次模块所在目录内。
+要求文件名为9a.csv 9b.csv 10a.csv 10b.csv 等等
 '''
 import os
 import csv
