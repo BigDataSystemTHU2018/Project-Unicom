@@ -27,6 +27,9 @@ BATCH_SIZE3 = 4
 # 取一周前的2个小时
 BATCH_SIZE4 = 2
 
+# 设置正则化系数
+REGULARIZER = 0.01
+
 # 模型保存在当前路径
 MODEL_SAVE_PATH = os.getcwd()
 # 模型名称
@@ -71,11 +74,11 @@ def backward(data, size_data):
     y_ = tf.placeholder(tf.float32)
     # y_image = tf.reshape(y_, [1, 54, 53, 1])
     # 最近3张图通过前向传播网络，得到结果y1
-    y1 = ResnetTHU.forward(x1_image, NUM_CHANNELS1)
+    y1 = ResnetTHU.forward(x1_image, NUM_CHANNELS1, REGULARIZER)
     # 一天前的4张图通过前向传播网络，得到结果y2
-    y2 = ResnetTHU.forward(x2_image, NUM_CHANNELS2)
+    y2 = ResnetTHU.forward(x2_image, NUM_CHANNELS2, REGULARIZER)
     # 一周前的2张图通过前向传播网络，得到结果y3
-    y3 = ResnetTHU.forward(x3_image, NUM_CHANNELS3)
+    y3 = ResnetTHU.forward(x3_image, NUM_CHANNELS3, REGULARIZER)
     # 三个结果相加
     y = y1 + y2 + y3
     # 把结果reshape成期望输出y_的样子
@@ -83,9 +86,11 @@ def backward(data, size_data):
 
     # 定义误差，均方误差
     mse = tf.reduce_mean(tf.square(y_ - y))
+    # 加入正则项
+    loss = mse + tf.add_n(tf.get_collection('losses'))
 
     # 定义优化器，即误差方向传播的算法，初始学习率为0.001，学习衰减指数为0.999
-    train_step = tf.train.AdadeltaOptimizer(0.001, rho=0.999).minimize(mse)
+    train_step = tf.train.AdadeltaOptimizer(0.001, rho=0.999).minimize(loss)
 
     # 定义模型保存实例,设置最多保存30个模型
     saver = tf.train.Saver(max_to_keep=30)
@@ -147,15 +152,16 @@ def backward(data, size_data):
 
                 # 误差反向传播
                 sess.run(train_step, feed_dict={x11: x1x, x22: x2x, x33: x3x, y_: data[start1:end1]})
-                # 如果跟踪每一步的输出，则把标注去掉
+                # 如果跟踪每一步的输出以及误差的变化，则把标注去掉
                 # YY = sess.run(Y, feed_dict={x11:x1x, x22:x2x, x33:x3x})
                 # print(YY)
-                # sess.run(train_step, feed_dict={x1: data[start2:end2], x2: data[start3:end3], x3: data[start4:end4],y_: data[start1:end1]})
+                # LOSS = sess.run(loss, feed_dict={x11: x1x, x2: x2x, x3: x3x, y_: data[start1:end1]})
+                # print(LOSS)
                 STEPS += 1
                 # 每500步输出一次，跟踪结果
                 if STEPS % 500 == 0:
-                    loss = sess.run(mse, feed_dict={x11: x1x, x22: x2x, x33: x3x, y_: data[start1:end1]})
-                    print('STEPS:{}, loss={}'.format(STEPS, loss))
+                    LOSS = sess.run(loss, feed_dict={x11: x1x, x22: x2x, x33: x3x, y_: data[start1:end1]})
+                    print('STEPS:{}, loss={}'.format(STEPS, LOSS))
 
             # 每10个epoch保存一次模型
             if ii % 10 == 0:
