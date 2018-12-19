@@ -143,9 +143,9 @@ def test(data, tra_arr, predict_start, predict_end):
             output_datas.append(YYY)
 
             STEPS += 1
-            # 观察每一步输出的误差，真实情况下也许没有期望值，就必须把下面两行标注掉
-            loss = sess.run(mse, feed_dict={x11: x1x, x22: x2x, x33: x3x, y_: data[start1:end1]})
-            print('STEPS:{}, loss={}'.format(STEPS, loss))
+            # 若存在target值，可以把下面两行标准去掉，观察预测与target之间的误差
+            # loss = sess.run(mse, feed_dict={x11: x1x, x22: x2x, x33: x3x, y_: data[start1:end1]})
+            # print('STEPS:{}, loss={}'.format(STEPS, loss))
             # 将本次的预测结果又作为下次预测的输入
             data[item] = YYY
         
