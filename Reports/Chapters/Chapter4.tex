@@ -3,3 +3,45 @@
 \chapter{分析和结论} % Main chapter title
 
 \label{Chapter4} 
+\section{数据分析}
+\subsection{数据集和预处理}
+测试数据集(见表\ref{table:data})是由中国联通智慧足迹数据科技有限公司所提供的从2017.9.1.-2017.11.30.的北京六环内的手机信令结果。 数据实验中选取从 2017.9.7.-2017.11.23.的数据为训练集，而之后的一周即2017.11.24-2017.11.30.的数据为测试集。
+\begin{table}
+\centering
+\caption{数据集}
+\label{table:data}
+\begin{tabular}{p{0.3\columnwidth}|p{0.45\columnwidth}}
+\hline
+\hline
+\textbf{Dataset} & \textbf{PopuBJ}\\
+\hline
+Data Type& Iphone Signal\\
+\hline
+Location & Beijing\\
+\hline
+Time Span & 9/1/2017-11/30/2017\\
+\hline
+Time interval & 1 hour\\
+\hline
+Grid map size & (53,54)\\
+\hline
+
+\end{tabular}
+\end{table}
+\subsection{模型比较}
+将模型的预测结果和下面三种基线结果进行比较：
+\begin{itemize}
+	\item 插值方法：用历史平均来插值预测，对于某一ID，某一周，某一时刻，计算它的历史平均
+	\item ARIMA: 前面进行初步训练的自回归积分滑动平均模型
+	\item 多层感知机模型
+\end{itemize}
+\subsection{评估方法}
+采取均方残差(RSME)的方法进行预测结果的精度分析，其数学表达式\cite{friedman2001elements}为：
+\begin{equation}
+R M S E = \sqrt { \frac { 1 } { z } \sum _ { i } \left( x _ { i } - \hat { x } _ { i } \right) ^ { 2 } }
+\end{equation}
+其中，$\hat{x_i}$和$x_i$分别是预测值和真实值，而$z$代表所有的数据的个数。
+\section{预测结果}
+\subsection{模型比较}
+\subsection{参数的影响}
+\subsection{结果可视化和区域分析}

@@ -37,7 +37,9 @@ headsepline, % Uncomment to get a line under the header
 %chapterinoneline, % Uncomment to place the chapter title next to the number on one line
 %consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
 ]{MastersDoctoralThesis} % The class file specifying the document structure
-
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithmicx,algorithm}
+\usepackage{subfig} %subfloat
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage[UTF8]{ctex} % support for chinese
@@ -47,7 +49,7 @@ headsepline, % Uncomment to get a line under the header
 %\usepackage[backend=bibtex,style=authoryear,sorting=ynt]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
 %\addbibresource{ref.bib} % The filename of the bibliography
-
+\usepackage{pdfpages}
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage{indentfirst} 
 \setlength{\parindent}{2em}
@@ -70,24 +72,19 @@ headsepline, % Uncomment to get a line under the header
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{基于信令数据的人口时空分布预测模型构建} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\thesistitle{} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 %\supervisor{} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
-\degree{中期报告} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
-\author{肖飞宇\quad牛苒\quad韦承志\quad沈磊\quad赵嘉欣\quad张玉生\quad李司棋\quad荆科
+\degree{} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{
  } % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 
 
-\keywords{人流预测，信令数据挖掘、残差神经网络} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
-\university{\href{http://www.tsinghua.edu.cn/}{Tsinghua University}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 \group{} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
 \faculty{} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
-\AtBeginDocument{
-\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
-\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
-\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
-}
 
 \begin{document}
 
@@ -99,39 +96,7 @@ headsepline, % Uncomment to get a line under the header
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\begin{titlepage}
-\begin{center}
-
-\vspace*{.06\textheight}
-{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-\textsc{\LARGE 大数据系统基础 课程报告}\\[0.5cm] % Thesis type
-
-\HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
-\HRule \\[1.5cm] % Horizontal line
- 
-\begin{minipage}[t]{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Author:}\\
-\href{https://github.com/BigDataSystemTHU2018/Project-Unicom}{\authorname} % Author name - remove the \href bracket to remove the link
-\end{flushleft}
-\end{minipage}
-
- 
-\vfill
-
-\Large \textit{本项目提供方为} \\ \textit{中国联通智慧足迹数据科技有限公司}\\[1cm] % University requirement text
-
- 
-\vfill
-
-
-%\includegraphics{Logo} % University/department logo - uncomment to place it
- 
-\vfill
-\end{center}
-\end{titlepage}
-
+\includepdf[pages=-]{cover.pdf}
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
@@ -147,7 +112,13 @@ headsepline, % Uncomment to get a line under the header
 
 \noindent\enquote{\itshape What magical trick makes us intelligent? The trick is that there is no trick. The power of intelligence stems from our vast diversity, not from any single, perfect principle.}\bigbreak
 
-\hfill Marvin Minsky(The Father of AI), The Society of Mind, p. 308
+\hfill Marvin Minsky
+
+\vspace*{0.05\textheight}
+
+\noindent\enquote{\itshape All models are wrong, but some are useul.}\bigbreak
+
+\hfill G.E.P. Box
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE
