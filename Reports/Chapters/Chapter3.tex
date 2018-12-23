@@ -132,7 +132,7 @@ X^{(l+1)} = X^{(l)} + \mathcal{F}(X^{(l)})
 \end{figure}
 \subsubsection*{残差网络结构}
 前文的图(\ref{fig:3.1})很好地展示了本研究所采用的残差网络的架构，在时间周期层面上考虑 \textbf{小时、天、周}三个不同层次的影响，并利用卷积考虑空间上的相互关联，最后再加入外部因素的影响。 模型分别采取预测时刻的最近三个小时、一天前的四个小时和一周前的两个小时的数据作为输入，在网络中得到不同的权重，再计算残差实现反向传播。\\
-在实际的网络设计中，考虑到城市不同区域之间的相互关联（如依靠地面公路、地铁的流动）进行卷积核的大小的调整和对于激活函数的定义。
+\indent 在实际的网络设计中，考虑到城市不同区域之间的相互关联（如依靠地面公路、地铁的流动）进行卷积核的大小的调整和对于激活函数的定义。
 \subsubsection*{数据混合}
 模型中的三个不同时间周期的数据可以用参数矩阵的方法进行混合:
 \begin{equation}
@@ -140,25 +140,47 @@ X^{(l+1)} = X^{(l)} + \mathcal{F}(X^{(l)})
 \end{equation}
 其中的乘法为矩阵乘法(哈达马积)，而参数$W_{hour}$,$W_{day}$和$W_{week}$为模型参数
 \subsubsection*{模型算法和优化方法}
+模型的算法步骤和优化方法见算法框图(\ref{al}) 
 \begin{algorithm}[t]
-\caption{algorithm caption} %算法的名字
+\caption{ResNet Training Algorithm} %算法的名字
+We first construct the training
+instances from the original sequence data. Then, RenNet is trained via backprogagation and adatle.\\
 \hspace*{0.02in} {\bf Input:} %算法的输入， \hspace*{0.02in}用来控制位置，同时利用 \\ 进行换行
-input parameters A, B, C\\
+Historical observations: \{ $X_0,\cdots,X_{n-1}$ \}\\
+\hspace*{0.02in} Lengths of closeness, period, trend sequences: $l_c$,$l_p$,$l_q$\\
+\hspace*{0.02in} Period, trend span: q\\
 \hspace*{0.02in} {\bf Output:} %算法的结果输出
-output result
+learnt ResNet model\\
 \begin{algorithmic}[1]
-\State some description % \State 后写一般语句
-\For{condition} % For 语句，需要和EndFor对应
-　　\State ...
-　　\If{condition} % If 语句，需要和EndIf对应
-　　　　\State ...
-　　\Else
-　　　　\State ...
+\State \#construct training instances\\
+D <- None\\ % \State 后写一般语句
+\For{t in all aviliable time interval [1,n-1]} % For 语句，需要和EndFor对应
+　　\State $S_c = [X_{t-l_c},X_{t-(l_c-1)},\cdots,X_{t-1}]$
+	\State $S_p = [X_{t-l_p*p},X_{t-(l_p-1)*p},\cdots,X_{t-p}]$
+	\State $S_q = [X_{t-l_q*q},X_{t-(l_q-1)*q},\cdots,X_{t-q}]$
+\# $X_t$ is the target at time t\\
+Put an training instance ($\{S_c,S_p,S_q \},X_t$) into D\\
+\EndFor
+\# define the loss
+\\
+LOSS = MSE($X_t$,output of ResNet)\\
+\# train the model\\
+\# initialize all learnable parameters cita in ResNet\\
+
+Epoch <- int(numbers)\\
+
+
+
+\For{epoch in range(Epoch)} % For 语句，需要和EndFor对应
+　　\State \textbf{Pepeat}
+	\State Select a instance $D_b$ from D
+	\State cita by minimizing the LOSS with $D_b$
+\textbf{Until} all elements of D used\\
+\# save model every 10 epoches
+　　\If{epoch \% 10 == 0} % If 语句，需要和EndIf对应
+　　　　\State Save model
 　　\EndIf
 \EndFor
-\While{condition} % While语句，需要和EndWhile对应
-　　\State ...
-\EndWhile
-\State \Return result
 \end{algorithmic}
+\label{al}
 \end{algorithm}
