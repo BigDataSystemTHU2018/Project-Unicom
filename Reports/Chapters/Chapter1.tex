@@ -95,4 +95,12 @@
 识和模式。与单一数据可视化不同，城市计算中
 的可视化技术需要同时考虑多个维度，其中，空间和时间是两个至关重要的维度\cite{zhengyu2015}。
 \subsubsection*{降维和选取}
-对于整体的数据进行可视化不失为一个好的方法，但是由于数据的高维性，选择对于数据进行一些降维处理再进行可视化，不失为一种很直观的展示手法。实际上，在后续的分析中，为了更好的揭示人口分布的规律，对于数据可视化的同时进行了聚类，使得更能展现出人口在空间上的分布特征。
+对于整体的数据进行可视化不失为一个好的方法，但是由于数据的高维性，选择对于数据进行一些降维处理再进行可视化，不失为一种很直观的展示手法。实际上，在后续的分析中，为了更好的揭示人口分布的规律，对于数据可视化的同时进行了聚类，使得更能展现出人口在空间上的分布特征。在预处理中将基站3个月的驻留人数时序数据作为特征向量，对基站通过Kmeans算法进行聚类，得到结果可视化如下图(\ref{fig:cluster3})和图(\ref{fig:cluster5})所示。
+\begin{figure}[ht]
+\centering
+\subfloat[聚类中心为3]{\label{fig:cluster3}{\includegraphics[width=0.5\textwidth]{clusters_3.png}}}
+\subfloat[聚类中心为5]{\label{fig:cluster5}{\includegraphics[width=0.5\textwidth]{clusters_3.png}}}
+\hfill
+\caption{对北京人口分布的聚类分析}
+%\label{fig:subfigures}
+\end{figure}

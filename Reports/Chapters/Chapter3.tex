@@ -65,7 +65,7 @@
 \end{enumerate}
 
 
-\section{多层感知机和时空残差网络方法}
+\section{时空残差网络方法}
 \subsection{理论基础}
 对于信令数据可以采取一下两种向量化方法：
 \begin{equation}
@@ -86,7 +86,7 @@ p = & f(id,time,week,p(last hour),p(yesterday),p(last week),p(last month))
 输入为数据的特征，人工选取：我们认为主要以人数与 星期几（已有）、具体小时（已有）、位置（已有）、天气（可以爬取）、前一小时的人数（对已有数据处理）等主要因素有关。
 同时我们以获得数据中的驻留人数、出发人数、到达人数作为标签，期望输出。
 利用期望输出与网络输出之间的误差建立学习信号反向传播，修正网络权重。
-\subsubsection*{网络搭建}
+\subsubsection*{初步网络搭建}
 中间两个隐层，每个隐层20个神经元，采取全连接。
 虽然说基站数量为2265个，我们的网络权重大约是600个待定参数好像不太够保存所有基站的信息。但是，注意到我们关注的是一片区域的总人口数据，而不是特指
 某个基站的总人口个数，所以我们的网络只要区分出这种大概有同一人口特性的区域即可，最终对人口驻留，流动的分析也是基于区域进行分析的，所以600个左右的待定参数是够用的。
@@ -99,7 +99,7 @@ p = & f(id,time,week,p(last hour),p(yesterday),p(last week),p(last month))
 	训练出来的模型是针对某一个基站或者某一块区域（9个基站左右，表示$9km^2$的一个区域）的人口情况。做分析时候要训练多点得到一个区域的数据进行分析。\\
 	统计关心区域的总人口驻留，总人口流出，总人口流入来表示这个区域的人口数据。因为守恒关系，一个区域内所有点的人口驻留人数代数和即为该区域的总人口驻留人数，总人口流入与总人口流之差，即为该区域的总人口流入或总人口流出。
 \end{itemize}
-\subsubsection*{多层感知机分析结果}
+
 
 \subsection{方案设计}
 最终的模型基于上述的 ARIMA 的初步分析和多层感知机的结果分析，参考文献中的方法，最终独立搭建了时空残差网络的模型方法。
@@ -144,7 +144,7 @@ X^{(l+1)} = X^{(l)} + \mathcal{F}(X^{(l)})
 \begin{algorithm}[t]
 \caption{ResNet Training Algorithm} %算法的名字
 We first construct the training
-instances from the original sequence data. Then, RenNet is trained via backprogagation and adatle.\\
+instances from the original sequence data.\\ Then, RenNet is trained via backprogagation and Adadelta.\\
 \hspace*{0.02in} {\bf Input:} %算法的输入， \hspace*{0.02in}用来控制位置，同时利用 \\ 进行换行
 Historical observations: \{ $X_0,\cdots,X_{n-1}$ \}\\
 \hspace*{0.02in} Lengths of closeness, period, trend sequences: $l_c$,$l_p$,$l_q$\\
@@ -153,28 +153,24 @@ Historical observations: \{ $X_0,\cdots,X_{n-1}$ \}\\
 learnt ResNet model\\
 \begin{algorithmic}[1]
 \State \#construct training instances\\
-D <- None\\ % \State 后写一般语句
-\For{t in all aviliable time interval [1,n-1]} % For 语句，需要和EndFor对应
+D <- None % \State 后写一般语句
+\For{t in all available time interval [1,n-1]} % For 语句，需要和EndFor对应
 　　\State $S_c = [X_{t-l_c},X_{t-(l_c-1)},\cdots,X_{t-1}]$
 	\State $S_p = [X_{t-l_p*p},X_{t-(l_p-1)*p},\cdots,X_{t-p}]$
-	\State $S_q = [X_{t-l_q*q},X_{t-(l_q-1)*q},\cdots,X_{t-q}]$
-\# $X_t$ is the target at time t\\
-Put an training instance ($\{S_c,S_p,S_q \},X_t$) into D\\
+	\State $S_q = [X_{t-l_q*q},X_{t-(l_q-1)*q},\cdots,X_{t-q}]$\\
+Put an training instance ($\{S_c,S_p,S_q \},X_t$) into D
 \EndFor
 \# define the loss
 \\
 LOSS = MSE($X_t$,output of ResNet)\\
 \# train the model\\
 \# initialize all learnable parameters cita in ResNet\\
-
-Epoch <- int(numbers)\\
-
-
+Epoch <- int(numbers)
 
 \For{epoch in range(Epoch)} % For 语句，需要和EndFor对应
-　　\State \textbf{Pepeat}
-	\State Select a instance $D_b$ from D
-	\State cita by minimizing the LOSS with $D_b$
+　　\State \textbf{Repeat}
+	\State Select an instance $D_b$ from D
+	\State $\theta$ by minimizing the LOSS with $D_b$
 \textbf{Until} all elements of D used\\
 \# save model every 10 epoches
 　　\If{epoch \% 10 == 0} % If 语句，需要和EndIf对应
