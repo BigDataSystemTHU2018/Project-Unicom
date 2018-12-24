@@ -1,5 +1,17 @@
 # ReadMe
 
+# Tools
+
+- 文档和代码的版本控制工具： **Git** 
+  - [Git官网](https://git-scm.com/)
+  - [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) （注意：主要学习 pull, commit的使用即可，代码开发可能需要 branch和merge的知识）
+- 文档写作 **Markdown**
+  - 软件推荐： [Typora:windows,Mac都可以使用的免费Markdown语法编辑器](https://www.typora.io/)
+  - 语法：
+    - [Markdown简明语法](https://www.jianshu.com/p/191d1e21f7ed)
+    - 详细的语法在**Typora** 软件中的 **Help->Markdown Reference** 有详细解答
+- Github 的使用
+
 ## 2018.10.11. Meeting
 
 + 11.7. 中期答辩 前期文献调研，方案制定 迅速建立 讨论（和企业导师多进行交流）
