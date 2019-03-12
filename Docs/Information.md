@@ -5,6 +5,8 @@
 - 文档和代码的版本控制工具： **Git** 
   - [Git官网](https://git-scm.com/)
   - [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) （注意：主要学习 pull, commit的使用即可，代码开发可能需要 branch和merge的知识）
+  - [Pro Git](https://git-scm.com/book/zh/v2)(Git 官方的非常好的一个教程)
+ 
 - 文档写作 **Markdown**
   - 软件推荐： [Typora:windows,Mac都可以使用的免费Markdown语法编辑器](https://www.typora.io/)
   - 语法：
