@@ -5,7 +5,7 @@
 - 文档和代码的版本控制工具： **Git** 
   - [Git官网](https://git-scm.com/)
   - [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) （注意：主要学习 pull, commit的使用即可，代码开发可能需要 branch和merge的知识）
-  - [Pro Git](https://git-scm.com/book/zh/v2)(Git 官方的非常好的一个教程)
+  - [Pro Git(https://git-scm.com/book/zh/v2) (Git 官方的非常好并且详细的一个教程)
  
 - 文档写作 **Markdown**
   - 软件推荐： [Typora:windows,Mac都可以使用的免费Markdown语法编辑器](https://www.typora.io/)
@@ -65,16 +65,6 @@
     + 前期文献调研和分析
     + 方案设计和初步实践
 
-+ 组员基本技能情况调研
-
-  + 肖飞宇：熟练掌握**Latex** 可总体负责文档编写，会一定的C++，Python以及机器学习和人工智能的算法可以帮助一些代码构建和分析（负责总体协调）
-  + 牛苒: 用Excel处理数据/Tableau数据可视化/PPT和presentation/金融Excel建模和分析
-  + 沈磊：比较熟练matlab，会一点linux，c++，python。
-  + 荆科: python,scrapy,回归分析，文本分析，各种设计
-  + 赵嘉欣：会c++，python以及机器学习等算法
-  + 李司棋：python在学，会matlab，c++，群智能相关算法，会一点STATA分析金融数据。也善于撰写报告和pre。
-  + 张玉生：matlab，python，c++属于一般水平。机器学习及人工智能初学阶段。
-  + 韦承志：会一定的python，Matlab，SQL（MySql），经典人工神经网络。爬虫在学。
 
 # Meeting 10.14.
 
